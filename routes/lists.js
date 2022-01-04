@@ -42,14 +42,14 @@ router.put("/", async (req, res) => {
 router.delete("/", async (req, res) => {
   try {
     const id = req.body.id;
-    const list = await List.findById(id);
-    if (!list) {
-      throw new Error("List not found");
-    }
+    // const list = await List.findById(id);
+    // if (!list) {
+    //   throw new Error("List not found");
+    // }
     await List.deleteOne({ _id: id });
     res.status(201).json({ message: "OK", data: [] });
   } catch (err) {
-    res.status(500).json({ message: err.message, data: [] });
+    res.status(500).json({ message: "error", data: [] });
   }
 });
 
