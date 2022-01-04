@@ -49,7 +49,7 @@ router.delete("/", async (req, res) => {
     await list.remove();
     res.status(201).json({ message: "OK", data: [] });
   } catch (err) {
-    res.status(500).json({ message: "error", data: [] });
+    res.status(500).json({ message: err.message, data: [] });
   }
 });
 
