@@ -46,7 +46,7 @@ router.delete("/", async (req, res) => {
     if (!list) {
       throw new Error("List not found");
     }
-    await list.remove();
+    await List.deleteOne({ _id: id });
     res.status(201).json({ message: "OK", data: [] });
   } catch (err) {
     res.status(500).json({ message: err.message, data: [] });
